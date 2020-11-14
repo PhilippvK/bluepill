@@ -83,7 +83,7 @@ target_link_libraries(${PROJECT_ELF_FILE} m)
 
 ADD_CUSTOM_TARGET(
     flash
-    COMMAND openocd  -c 'source [find interface/stlink-v2.cfg]' -c 'transport select hla_swd' -c 'source [find target/stm32f1x.cfg]' -c 'program ${PROJECT_ELF_FILE} verify reset exit'
+    COMMAND openocd  -c 'source [find interface/stlink-v2-1.cfg]' -c 'transport select hla_swd' -c 'source [find target/stm32f1x.cfg]' -c 'program ${PROJECT_ELF_FILE} verify reset exit'
     )
 
 ADD_DEPENDENCIES(flash ${PROJECT_ELF_FILE})
