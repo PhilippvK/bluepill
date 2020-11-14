@@ -85,14 +85,14 @@ struct mediaHID_t {
 	uint8_t keys;
 };
 
-struct nkroHID_t {
+/*struct nkroHID_t {
     uint8_t modifiers;
     uint8_t padding[7];
     uint8_t bitmap[HID_REPORT_BYTES - 1];
-};
+};*/
 
 struct bootHID_t bootHID = {0};
-struct nkroHID_t nkroHID = {0};
+//struct nkroHID_t nkroHID = {0};
 struct mouseHID_t mouseHID = { .id =1 };
 struct keyboardHID_t keyboardHID = { .id = 2 };
 struct mediaHID_t mediaHID = { .id = 3 };
