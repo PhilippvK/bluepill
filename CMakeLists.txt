@@ -74,7 +74,7 @@ target_link_libraries(${PROJECT_ELF_FILE} m)
 
 ADD_CUSTOM_TARGET(
     flash
-    COMMAND openocd  -c 'source [find interface/stlink-v2.cfg]' -c 'transport select hla_swd' -c 'source [find target/stm32f1x.cfg]' -c 'program ${PROJECT_ELF_FILE} verify reset exit'
+    COMMAND openocd  -c 'source [find interface/stlink-v2-1.cfg]' -c 'transport select hla_swd' -c 'source [find target/stm32f1x.cfg]' -c 'program ${PROJECT_ELF_FILE} verify reset exit'
     )
 
 ADD_DEPENDENCIES(flash ${PROJECT_ELF_FILE})
@@ -90,7 +90,7 @@ ADD_CUSTOM_TARGET(clean_all
 
 ADD_CUSTOM_TARGET(
     debug
-    COMMAND openocd  -c 'source [find interface/stlink-v2.cfg]' -c 'transport select hla_swd' -c 'source [find target/stm32f1x_stlink.cfg]' -c 'reset_config srst_nogate' >/dev/null 2&1 & sleep 2
+    COMMAND openocd  -c 'source [find interface/stlink-v2-1.cfg]' -c 'transport select hla_swd' -c 'source [find target/stm32f1x_stlink.cfg]' -c 'reset_config srst_nogate' >/dev/null 2&1 & sleep 2
     COMMAND ${TARGET_TRIPLET}-gdb -tui -command=${CMAKE_CURRENT_LIST_DIR}/GDBCommands -se ${CMAKE_BINARY_DIR}/${CMAKE_PROJECT_NAME}.elf
     COMMAND killall -15 openocd
     )
